@@ -24,7 +24,7 @@ NEWSPIDER_MODULE = 'search_match.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'search_match (+http://www.yourdomain.com)'
-# USER_AGENT = 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:21.0) Gecko/20100101 Firefox/49.0'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:21.0) Gecko/20100101 Firefox/49.0'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -41,7 +41,7 @@ ROBOTSTXT_OBEY = False
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-# COOKIES_ENABLED = False
+#COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -62,8 +62,8 @@ ROBOTSTXT_OBEY = False
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'search_match.middlewares.SearchMatchDownloaderMiddleware': 543,
-    'scrapy.downloadermiddleware.useragent.UserAgentMiddleware': None, 
-    'search_match.middlewares.MyUserAgentMiddleware': 400,
+    # 'scrapy.downloadermiddleware.useragent.UserAgentMiddleware': None, 
+    # 'search_match.middlewares.MyUserAgentMiddleware': 400,
 }
 
 # Enable or disable extensions

@@ -10,7 +10,8 @@ from scrapy.http import HtmlResponse
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
-
+from fake_useragent import UserAgent
+from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
 
 class SearchMatchSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -83,13 +84,14 @@ class SearchMatchDownloaderMiddleware(object):
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
         usedSelenium = request.meta.get('usedSelenium', False)
+        path = request.meta.get('element_xpath', "")
         if usedSelenium:
             spider.browser.get(request.url)
-            spider.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div/div/div/div[1]/table/tbody')))
+            spider.wait.until(EC.presence_of_element_located((By.XPATH, path)))
             time.sleep(2)
             return HtmlResponse(url=request.url, body=spider.browser.page_source, request=request,
-                                status=200,encoding='utf-8')
-        return None
+                    status=200,encoding='utf-8')
+            return None
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.
@@ -112,3 +114,13 @@ class SearchMatchDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+class MyUserAgentMiddleware(UserAgentMiddleware):
+
+    def __init__(self, user_agent):
+        self.user_agent = UserAgent()
+
+    def process_request(self, request, spider):
+        agent = self.user_agent.random
+        spider.logger.info('user-agent : %s' % agent)
+        request.headers['User-Agent'] = agent

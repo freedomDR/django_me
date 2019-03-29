@@ -46,7 +46,7 @@ class CsacademySpider(CrawlSpider):
     def start_requests(self):
         for url in self.start_urls:
             yield scrapy.Request(url, callback=self.parse,
-                                 meta={'usedSelenium': True})
+                    meta={'usedSelenium': True, 'element_xpath':'/html/body/div[3]/div/div/div/div[1]/table/tbody'})
 
     def parse(self, response):
         soup = BeautifulSoup(response.text, 'lxml')

@@ -1,102 +1,102 @@
 {% load static %}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>freedomDR</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
-          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel = "stylesheet" type="text/css" href="{% static 'info/style.css' %}" >
+    <head>
+        <title>freedomDR</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+                               integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <link rel = "stylesheet" type="text/css" href="{% static 'info/css/style.css' %}" >
 
-    <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
-            integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-            crossorigin="anonymous"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
+                integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+                crossorigin="anonymous"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
 
-    <style type="text/css">
+        <script src="{% static 'info/js/vue.js'%}"></script>
 
-    </style>
 
-</head>
-<body>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-    <a class="navbar-brand" href="#">FreedomDR</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+            <a class="navbar-brand" href="#">FreedomDR</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                                                                                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">recent match <span
-                        class="badge badge-success badge-pill">{{ match_numbers }}</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="https://github.com" target="_blank">github</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/pages/" target="_self">blog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Music</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" target="_blank" href="https://music.163.com/"><i class="fa-spin fas fa-music my_music"></i>&nbsp;&nbsp;网易音乐</a>
-                    <a class="dropdown-item" target="_blank" href="https://www.xiami.com/"><i class="fa-spin fas fa-music my_music"></i>&nbsp;&nbsp;虾米音乐</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">recent match <span
+                                            class="badge badge-success badge-pill">{{ match_numbers }}</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://github.com" target="_blank">github</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/pages/" target="_self">blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                    <li class="nav-item dropdown" id = "my_music">
+                        <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">Music</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" target="_blank" href="https://music.163.com/" v-on:click="go('网易音乐')"><i class="fa-spin fas fa-music my_music"></i>&nbsp;&nbsp;网易音乐</a>
+                            <a class="dropdown-item" target="_blank" href="https://www.xiami.com/" v-on:click="go('虾米音乐')"><i class="fa-spin fas fa-music my_music"></i>&nbsp;&nbsp;虾米音乐</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-<main role="main">
-    <div class="container-fluid">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">name</th>
-                <th scope="col">time</th>
-                <th scope="col">register people</th>
-            </tr>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">name</th>
-                <th scope="col">website</th>
-                <th scope="col">time</th>
-                <th scope="col">register people</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for t in match_list %}
-                <tr>
-                    <td>{{ t.sort_id }}</td>
-                    <td><a href="{{ t.item.match_website }}"> {{ t.item.match_name }} </a></td>
-                    <td>{{ t.website }}</td>
-                    <td>{{ t.item.match_start_date }}</td>
-                    <td>{{ t.item.match_register }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</main>
+        <main role="main">
+        <div class="container-fluid">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">name</th>
+                        <th scope="col">time</th>
+                        <th scope="col">register people</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">name</th>
+                        <th scope="col">website</th>
+                        <th scope="col">time</th>
+                        <th scope="col">register people</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for t in match_list %}
+                    <tr>
+                        <td>{{ t.sort_id }}</td>
+                        <td><a href="{{ t.item.match_website }}"> {{ t.item.match_name }} </a></td>
+                        <td>{{ t.website }}</td>
+                        <td>{{ t.item.match_start_date }}</td>
+                        <td>{{ t.item.match_register }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </main>
 
-<footer class="container">
-    <p>&copy; Company 2017-2018</p>
-</footer>
-</body>
+        <footer class="container">
+            <p>&copy; Company 2017-2018</p>
+        </footer>
+        <script src="{% static 'info/js/index.js'%}"></script>
+    </body>
 </html>
