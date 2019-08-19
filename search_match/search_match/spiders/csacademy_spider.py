@@ -40,7 +40,6 @@ class CsacademySpider(CrawlSpider):
         dispatcher.connect(receiver=self.csacademy_spider_close_handle, signal=signals.spider_closed)
 
     def csacademy_spider_close_handle(self, spider):
-        logging.info('firefox quit')
         self.browser.quit()
 
     def start_requests(self):
@@ -50,13 +49,10 @@ class CsacademySpider(CrawlSpider):
 
     def parse(self, response):
         soup = BeautifulSoup(response.text, 'lxml')
-        logging.info(soup.table)
         tmp = soup.table.find_all('tr')[1:]
-        logging.info('time %s', soup.table.find_all('tr'))
         for line in tmp:
             data = MatchInformationItem()
             data['match_website'] = 'https://csacademy.com/contests'
-            logging.info(str(line.find_all('td')[1].text))
             time_tmp = line.find_all('td')[1].text.split('local')[0].strip()
             time_tmp = datetime.strptime(time_tmp, '%d/%m/%Y, %H:%M')
             data['match_start_date'] = time_tmp.strftime('%Y-%m-%d %X')

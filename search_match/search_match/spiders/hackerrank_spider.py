@@ -12,11 +12,9 @@ class HackerrankSpiderSpider(CrawlSpider):
     name = 'hackerrank_spider'
     allowed_domains = ['www.hackerrank.com']
     start_urls = ['http://www.hackerrank.com/contests']
-    logging.getLogger(__name__)
 
     @clean_match('hackerrank')
     def __init__(self):
-        logging.info(type(self))
         super(HackerrankSpiderSpider, self).__init__()
 
     def start_requests(self):

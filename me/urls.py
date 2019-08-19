@@ -13,11 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path, re_path, include
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
 from wagtail.core import urls as wagtail_urls
+from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from apscheduler.schedulers.gevent import GeventScheduler
@@ -42,6 +42,7 @@ def spider():
 scheduler = BackgroundScheduler()
 scheduler.add_job(spider, 'interval', seconds=60*60*1)
 try:
+    spider()
     p = scheduler.start()
 except (KeyboardInterrupt, SystemExit):
     print('apscheduler exit')

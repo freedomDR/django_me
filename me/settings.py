@@ -157,4 +157,4 @@ WAGTAIL_SITE_NAME = 'My Example Site'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+WAGTAIL_SITE_NAME = 'My Example Site'
