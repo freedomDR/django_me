@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['127.0.0.1']
 
 INSTALLED_APPS = [
         'info.apps.InfoConfig',
-        'blog.apps.BlogConfig',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -41,20 +40,8 @@ INSTALLED_APPS = [
         'django.contrib.staticfiles',
 
         'bootstrap4',
-        'wagtail.contrib.forms',
-        'wagtail.contrib.redirects',
-        'wagtail.embeds',
-        'wagtail.sites',
-        'wagtail.users',
-        'wagtail.snippets',
-        'wagtail.documents',
-        'wagtail.images',
-        'wagtail.search',
-        'wagtail.admin',
-        'wagtail.core',
 
         'modelcluster',
-        'taggit',
         ]
 
 MIDDLEWARE = [
@@ -65,8 +52,6 @@ MIDDLEWARE = [
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'wagtail.core.middleware.SiteMiddleware',
-        'wagtail.contrib.redirects.middleware.RedirectMiddleware',
         ]
 
 ROOT_URLCONF = 'me.urls'
@@ -150,11 +135,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATIC_ROOT = '/mnt/sdb/python3_code/django_projects/me/static/'
-WAGTAIL_SITE_NAME = 'My Example Site'
 #STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, "static")
 #]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-WAGTAIL_SITE_NAME = 'My Example Site'
