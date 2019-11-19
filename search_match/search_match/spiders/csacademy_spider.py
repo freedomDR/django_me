@@ -31,7 +31,8 @@ class CsacademySpider(CrawlSpider):
         self.windowWidth = self.mySetting['WINDOW_WIDTH']
         opt = webdriver.FirefoxOptions()
         opt.headless = True
-        self.browser = webdriver.Firefox(firefox_options=opt)
+        # self.browser = webdriver.Firefox(firefox_options=opt)
+        self.browser = webdriver.remote.webdriver.WebDriver("http://browser:4444/wd/hub", options=opt)
         if self.windowHeight and self.windowWidth:
             self.browser.set_window_size(self.windowWidth, self.windowHeight)
         self.browser.set_page_load_timeout(self.timeout)

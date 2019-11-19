@@ -22,7 +22,8 @@ class CometojSpider(scrapy.Spider):
         self.timeout = self.mySetting['SELENIUM_TIMEOUT']
         opt = webdriver.FirefoxOptions()
         opt.headless = True
-        self.browser = webdriver.Firefox(firefox_options=opt)
+        # self.browser = webdriver.Firefox(firefox_options=opt)
+        self.browser = webdriver.remote.webdriver.WebDriver("http://browser:4444/wd/hub", options=opt)
         self.browser.set_page_load_timeout(self.timeout)
         self.wait = WebDriverWait(self.browser, 60, 1)
         super(CometojSpider, self).__init__()

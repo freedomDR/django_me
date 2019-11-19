@@ -1,31 +1,38 @@
 version: '3'
 
 services:
-  db:
-    image: mysql:5.7
-    command: --character-set-server=utf8 --collation-server=utf8_unicode_ci 
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: django_database
-      MYSQL_USER: django_user
-      MYSQL_PASSWORD: django_password
-  adminer:
-    image: adminer
-    ports:
-      - 8080:8080
-  web:
-    build: .
-    command: 
-      - /bin/bash
-      - -c
-      - |
-        python3 manage.py makemigrations
-        python3 manage.py migrate
-        nohup python3 scrapy_start.py > scrapy.log 2>&1 &
-        python3 manage.py runserver 0.0.0.0:8000 
-    volumes:
-      - .:/usr/src/app/me
-    ports:
-      - 8765:8000
-    depends_on:
-      - db
+    db:
+        image: mysql:5.7
+        command: --character-set-server=utf8 --collation-server=utf8_unicode_ci 
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: django_database
+            MYSQL_USER: django_user
+            MYSQL_PASSWORD: django_password
+    adminer:
+        image: adminer
+        ports:
+            - 8080:8080
+    browser:
+        image: selenium/standalone-firefox
+        volumes:
+            - /dev/shm:/dev/shm
+        ports:
+            - 4444:4444
+    web:
+        build: .
+        command: 
+            - /bin/bash
+            - -c
+            - |
+                python3 manage.py makemigrations
+                python3 manage.py migrate
+                nohup python3 scrapy_start.py > scrapy.log 2>&1 &
+                python3 manage.py runserver 0.0.0.0:8000 
+        volumes:
+            - .:/usr/src/app/me
+        ports:
+            - 8765:8000
+        depends_on:
+            - db
+            - browser
