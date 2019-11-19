@@ -28,16 +28,16 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-print(settings.BASE_DIR)
+# print(settings.BASE_DIR)
 
-def spider():
-    subprocess.Popen(settings.BASE_DIR + '/scrapy_start.sh', shell=True, stdout=sys.stdout)
+# def spider():
+#     subprocess.Popen(settings.BASE_DIR + '/scrapy_start.sh', shell=True, stdout=sys.stdout)
 
-scheduler = BackgroundScheduler()
-scheduler.add_job(spider, 'interval', seconds=60*60*1)
-try:
-    spider()
-    p = scheduler.start()
-except (KeyboardInterrupt, SystemExit):
-    print('apscheduler exit')
-    scheduler.shutdown()
+# scheduler = BackgroundScheduler()
+# scheduler.add_job(spider, 'interval', seconds=60*60*1)
+# try:
+#     spider()
+#     p = scheduler.start()
+# except (KeyboardInterrupt, SystemExit):
+#     print('apscheduler exit')
+#     scheduler.shutdown()
