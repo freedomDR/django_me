@@ -42,7 +42,7 @@ djangocms-snippet==2.0.0
 djangocms-style==2.0.2
 djangocms-text-ckeditor==3.6.0
 djangocms-video==2.0.4
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 draftjs-exporter==2.1.5
 easy-thumbnails==2.5
 fake-useragent==0.1.11
