@@ -102,7 +102,7 @@ w3lib==1.20.0
 wagtail==2.5.1
 wcwidth==0.1.7
 webencodings==0.5.1
-Werkzeug==0.14.1
+Werkzeug==0.15.5
 Willow==1.1
 wrapt==1.10.11
 zope.interface==4.6.0
